@@ -89,7 +89,7 @@ public class PizzaOrderSystem {
         if (taxableAmount > 0) {
             tax = taxableAmount * (TAX_RATE);
         }
-        return tax;  // Variable may not be initialized
+        return tax;  // Variable may not be initialized | fixed
     }
 
     public static void displayOrderSummary(String name, int pizzaChoice, int toppings,
@@ -101,9 +101,9 @@ public class PizzaOrderSystem {
         System.out.println("\n=== Order Summary for " + name + " ===");
         System.out.println(pizzaSize + " Pizza: $" + pizzaPrice);
 
-        if (toppings > 0) {  // Should be > 0
+        if (toppings > 0) {  // Should be > 0 | fixed
             System.out.println("Additional Toppings (" + (toppings) + "): $" +
-                    (toppings * 1.50));  // Adding 1 to count incorrectly
+                    (toppings * 1.50));  // Adding 1 to count incorrectly | fixed
         }
 
         System.out.println("Subtotal: $" + subtotal);
@@ -114,10 +114,12 @@ public class PizzaOrderSystem {
             System.out.println(discountType + ": -$" + discount);
         }
 
-        System.out.println("Tax (8.25%): $" + taxAmount);
-        System.out.println("Total: $" + total);
+        System.out.print("Tax (8.25%): ");
+        System.out.printf("$%.2f\n", taxAmount);
+        System.out.printf("Total: $%.2f\n", total);
+        // added souf and updated formatting for above lines for better print results
 
-        System.out.println("\nThank you for your order!");
+        System.out.println("Thank you for your order!");
     }
 
     public static String getPizzaSizeName(int choice) {
