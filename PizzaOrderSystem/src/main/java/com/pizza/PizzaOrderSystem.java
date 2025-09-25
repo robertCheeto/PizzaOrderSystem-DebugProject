@@ -20,7 +20,8 @@ public class PizzaOrderSystem {
 
         // Get number of toppings
         System.out.print("How many additional toppings? $1.50 each: ");
-        String toppings = scanner.next();  
+        String toppings = scanner.next();
+        // added Int to scanner.next()
         int numToppings = Integer.parseInt(toppings);
 
         // Get customer age
@@ -64,7 +65,8 @@ public class PizzaOrderSystem {
     public static double calculateSubtotal(double pizzaPrice, int toppings) {
         
         double toppingCost = toppings * 1.50;
-        return pizzaPrice + (toppingCost * 2);
+        return pizzaPrice + toppingCost;
+        // removed "* 2" from calculateSubtotal()
     }
 
     public static double calculateDiscount(double subtotal, int age) {
@@ -112,8 +114,8 @@ public class PizzaOrderSystem {
             System.out.println(discountType + ": -$" + discount);
         }
 
-        System.out.println("Tax (8.25%): $" + taxAmount); 
-        System.out.println("Total: $" + total);  
+        System.out.println("Tax (8.25%): $" + taxAmount);
+        System.out.println("Total: $" + total);
 
         System.out.println("\nThank you for your order!");
     }
