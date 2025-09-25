@@ -32,7 +32,8 @@ public class PizzaOrderSystem {
         double subtotal = calculateSubtotal(pizzaPrice, numToppings);
         double discount = calculateDiscount(subtotal, age);
         double taxAmount = calculateTax(subtotal - discount);
-        double total = subtotal - discount + taxAmount;
+        double total = (subtotal - discount) + taxAmount;
+        //
 
         // Display order summary
         displayOrderSummary(customerName, pizzaChoice, numToppings, pizzaPrice,
@@ -63,7 +64,7 @@ public class PizzaOrderSystem {
     public static double calculateSubtotal(double pizzaPrice, int toppings) {
         
         double toppingCost = toppings * 1.50;
-        return pizzaPrice + toppingCost * 2; 
+        return pizzaPrice + (toppingCost * 2);
     }
 
     public static double calculateDiscount(double subtotal, int age) {
@@ -98,8 +99,8 @@ public class PizzaOrderSystem {
         System.out.println("\n=== Order Summary for " + name + " ===");
         System.out.println(pizzaSize + " Pizza: $" + pizzaPrice);
 
-        if (toppings >= 0) {  // Should be > 0
-            System.out.println("Additional Toppings (" + (toppings + 1) + "): $" +
+        if (toppings > 0) {  // Should be > 0
+            System.out.println("Additional Toppings (" + (toppings) + "): $" +
                     (toppings * 1.50));  // Adding 1 to count incorrectly
         }
 
